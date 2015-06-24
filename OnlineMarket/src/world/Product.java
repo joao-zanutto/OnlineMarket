@@ -1,4 +1,4 @@
-package server;
+package world;
 
 public class Product {
 	class Date {
