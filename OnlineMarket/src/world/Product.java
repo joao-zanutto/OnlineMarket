@@ -1,6 +1,10 @@
 package world;
 
 public class Product {
+	public String toString(){
+		return name + ", " + price + ", " + expiration.day + "/" + expiration.month + "/" + expiration.year + ", " + provider;
+	}
+	
 	class Date {
 		int day;
 		int month;
@@ -13,6 +17,7 @@ public class Product {
 		}
 	}
 	
+	private int quantity = 0;
 	private String name;
 	private double price;
 	private Date expiration;
@@ -25,27 +30,35 @@ public class Product {
 		this.provider = provider;
 	}
 	
-	String getName(){
+	public String getName(){
 		return this.name;
 	}
 	
-	double getPrice(){
+	public double getPrice(){
 		return this.price;
 	}
 	
-	String getProvider(){
+	public String getProvider(){
 		return this.provider;
 	}
 	
-	int getExpDay(){
+	public int getExpDay(){
 		return this.expiration.day;
 	}
 	
-	int getExpMonth(){
+	public int getExpMonth(){
 		return this.expiration.month;
 	}
 	
-	int getExpYear(){
+	public int getExpYear(){
 		return this.expiration.year;
+	}
+	
+	public int getQuantity(){
+		return this.quantity;
+	}
+	
+	public void setQuantity(int num){
+		this.quantity = num;
 	}
 }
