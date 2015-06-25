@@ -56,25 +56,30 @@ public class ServerController extends Application{
     void initialize() {    	
         confirmButton.setOnAction(event->{
         	if(verifyConfirmation()){
-        		Product p = new Product(nameField.getText(), Double.parseDouble(priceField.getText()), Integer.parseInt(dayField.getText()),
-        				Integer.parseInt(monthField.getText()), Integer.parseInt(yearField.getText()), providerField.getText());
-        		ph.registerProduct(p);
-        		nameField.setText("");
-        		priceField.setText("");
-        		dayField.setText("");
-        		monthField.setText("");
-        		yearField.setText("");
-        		providerField.setText("");
+        		registerStages();
         	}
         });
         
-        for(Product p : ph.getProductList()){
-        	printList(p);
-        }
+        
     }
     
     void printList(Product p){
     	list.setText(list.getText() + p + "\n");
+    }
+    
+    // Method that make the register for the new product
+    void registerStages(){
+    	Product p = new Product(nameField.getText(), Double.parseDouble(priceField.getText()), Integer.parseInt(dayField.getText()),
+				Integer.parseInt(monthField.getText()), Integer.parseInt(yearField.getText()), providerField.getText());
+		ph.registerProduct(p);
+		nameField.setText("");
+		priceField.setText("");
+		dayField.setText("");
+		monthField.setText("");
+		yearField.setText("");
+		providerField.setText("");
+		
+		printList(p);
     }
     
     // Method that verify if a string is a double
