@@ -1,7 +1,7 @@
 # OnlineMarket
-This is a college assignment and shoudn't be safe for business usage
+Este é um projeto para a disciplina de POO no ICMC-USP
 
-coded using:
+#### Programado em
 
 ```
 Windows 8.1
