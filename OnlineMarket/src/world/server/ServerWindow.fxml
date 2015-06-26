@@ -30,7 +30,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Lista de produtos">
+    <Tab onSelectionChanged="#refreshList" text="Lista de produtos">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -38,9 +38,15 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="Editar produtos">
+      <Tab onSelectionChanged="#refreshComboBox" text="Editar produtos">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="addButton" layoutX="22.0" layoutY="135.0" mnemonicParsing="false" text="Adicionar unidade" />
+                  <Button fx:id="subButton" layoutX="270.0" layoutY="135.0" mnemonicParsing="false" text="Remover unidade" />
+                  <ComboBox fx:id="prodSelection" layoutX="126.0" layoutY="56.0" prefHeight="31.0" prefWidth="181.0" promptText="Selecione produto" />
+                  <Button fx:id="saveButton" layoutX="191.0" layoutY="200.0" mnemonicParsing="false" text="Salvar" />
+               </children></AnchorPane>
         </content>
       </Tab>
   </tabs>

@@ -8,11 +8,14 @@ import java.util.Scanner;
 
 import world.Product;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -56,6 +59,18 @@ public class ServerController extends Application{
     private TextArea list;
     
     @FXML
+    private Button addButton;
+    
+    @FXML
+    private Button subButton;
+    
+    @FXML
+    private ComboBox<Product> prodSelection;
+    
+    @FXML
+    private Button saveButton;
+    
+    @FXML
     void initialize() {
     	readFile();
     	
@@ -66,12 +81,42 @@ public class ServerController extends Application{
         	}
         });
         
+        addButton.setOnAction(event->{
+        	if(prodSelection.getSelectionModel().getSelectedItem() != null)
+        		ph.addQuantity(prodSelection.getSelectionModel().getSelectedItem());
+        });
         
+        subButton.setOnAction(event->{
+        	if(prodSelection.getSelectionModel().getSelectedItem() != null)
+        		ph.removeQuantity(prodSelection.getSelectionModel().getSelectedItem());
+        });
+        
+        saveButton.setOnAction(event->{
+        	ph.makeFile();
+        });
+    }
+    
+    @FXML
+    void refreshComboBox(){
+    	ObservableList<Product> options = 
+    		    FXCollections.observableArrayList(
+    		        ph.getProductList()
+    		    );
+    	
+    	prodSelection.setItems(options);
+    }
+    
+    @FXML
+    void refreshList(){
+    	list.setText("");
+    	for(Product p : ph.getProductList()){
+    		list.setText(list.getText() + p.describe() + "\n");
+    	}
     }
     
     // Printa o produto na lista de produtos
     void printList(Product p){
-    	list.setText(list.getText() + p + "\n");
+    	list.setText(list.getText() + p.describe() + "\n");
     }
     
     // Método que registra um produto baseado nas informações da interface gráfica

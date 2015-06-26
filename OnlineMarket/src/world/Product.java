@@ -1,9 +1,13 @@
 package world;
 
 public class Product {
-	public String toString(){
+	public String describe(){
 		return "Nome: " + name + "\n" + "Preço: " + price + "\n" + "Validade: " + expiration.day + "/" + expiration.month + "/" + expiration.year + "\n"
 				+ "Fornecedor: " + provider + "\n" + "Quantidade no estoque: " + quantity + "\n";
+	}
+	
+	public String toString(){
+		return name;
 	}
 	
 	class Date {
