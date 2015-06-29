@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import world.Client;
 import world.Product;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -24,6 +25,7 @@ import javafx.stage.Stage;
 
 public class ServerController extends Application{
 	ProductHandler ph = ProductHandler.getProductHandler();
+	ClientHandler ch = ClientHandler.getClientHandler();
 
     @FXML
     private ResourceBundle resources;
@@ -73,6 +75,7 @@ public class ServerController extends Application{
     @FXML
     void initialize() {
     	readFile();
+    	readClientFile();
     	
         confirmButton.setOnAction(event->{
         	if(verifyConfirmation()){
@@ -114,6 +117,11 @@ public class ServerController extends Application{
     	}
     }
     
+    @FXML
+    void openServer(){
+    	new ServerThread().startThread();
+    }
+    
     // Printa o produto na lista de produtos
     void printList(Product p){
     	list.setText(list.getText() + p.describe() + "\n");
@@ -132,6 +140,34 @@ public class ServerController extends Application{
 		providerField.setText("");
 		
 		printList(p);
+    }
+    
+    // Método que lê o arquivo e recuper informações de clientes
+    private void readClientFile(){
+    	File file = new File("clientlist.csv");
+    	if(!file.exists()){
+    		return;
+    	}
+    	
+    	try{
+    		Scanner sc = new Scanner(file);
+    		sc.useDelimiter(", ");
+    		while(sc.hasNextLine()){
+    			String name = sc.next();
+    			String addres = sc.next();
+    			String phone = sc.next();
+    			String email = sc.next();
+    			String login = sc.next();
+    			String password = sc.nextLine();
+    			
+    			Client c = new Client(name, addres, phone, email, login, password);
+    			ch.addClient(c);
+    		}
+    		
+    		sc.close();
+    	} catch (FileNotFoundException e) {
+			System.out.println("Something wrong happened while reading from file");
+		}
     }
     
     // Método que lê o arquivo e recuper informações de produtos
@@ -215,7 +251,7 @@ public class ServerController extends Application{
 		mainStage.show();
 	}
 	
-	//public static void main(String[] args){
-	//	launch(args);
-	//}
+	public static void main(String[] args){
+		launch(args);
+	}
 }

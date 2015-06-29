@@ -8,18 +8,18 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.client.ClientController">
   <tabs>
-    <Tab text="Login">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <Tab text="Conectar">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="login" layoutX="127.0" layoutY="90.0" />
-                  <TextField fx:id="password" layoutX="127.0" layoutY="150.0" />
-                  <Label layoutX="66.0" layoutY="95.0" text="Login" />
-                  <Label layoutX="67.0" layoutY="155.0" text="Senha" />
-                  <Button fx:id="confirm" layoutX="108.0" layoutY="251.0" mnemonicParsing="false" text="Confirmar" />
-               </children></AnchorPane>
-      </content>
-    </Tab>
+                  <Label layoutX="110.0" layoutY="119.0" text="IP" />
+                  <TextField fx:id="ip" layoutX="134.0" layoutY="114.0" />
+                  <Button fx:id="connect" layoutX="343.0" layoutY="114.0" mnemonicParsing="false" onAction="#connectToServer" text="Tentar Conexão" />
+                  <Text fx:id="cerror" fill="TRANSPARENT" layoutX="91.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UM ERRO SOBRE A CONEXAO, ALGO OCORREU BOY" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
     <Tab text="Registrar">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -39,6 +39,18 @@
                   <Button layoutX="72.0" layoutY="305.0" mnemonicParsing="false" onAction="#registerAction" text="Confirmar" />
                   <Button layoutX="212.0" layoutY="305.0" mnemonicParsing="false" onAction="#clearForm" text="Limpar" />
                   <Text fx:id="error" fill="TRANSPARENT" layoutX="54.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENSSAGEM DE ERRO SUPER MEGA GRANDE PARA GARANTIR ESPAÇO" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Login">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="login" layoutX="127.0" layoutY="90.0" />
+                  <TextField fx:id="password" layoutX="127.0" layoutY="150.0" />
+                  <Label layoutX="66.0" layoutY="95.0" text="Login" />
+                  <Label layoutX="67.0" layoutY="155.0" text="Senha" />
+                  <Button fx:id="confirm" layoutX="108.0" layoutY="251.0" mnemonicParsing="false" text="Confirmar" />
                </children></AnchorPane>
       </content>
     </Tab>

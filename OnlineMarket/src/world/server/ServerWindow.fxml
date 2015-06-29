@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="433.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.server.ServerController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="548.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.server.ServerController">
   <tabs>
     <Tab text="Criar novo produto">
       <content>
@@ -34,7 +34,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea fx:id="list" editable="false" layoutX="1.0" prefHeight="296.0" prefWidth="433.0" />
+                  <TextArea fx:id="list" editable="false" layoutX="1.0" prefHeight="296.0" prefWidth="548.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -43,10 +43,20 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Button fx:id="addButton" layoutX="22.0" layoutY="135.0" mnemonicParsing="false" text="Adicionar unidade" />
-                  <Button fx:id="subButton" layoutX="270.0" layoutY="135.0" mnemonicParsing="false" text="Remover unidade" />
-                  <ComboBox fx:id="prodSelection" layoutX="126.0" layoutY="56.0" prefHeight="31.0" prefWidth="181.0" promptText="Selecione produto" />
-                  <Button fx:id="saveButton" layoutX="191.0" layoutY="200.0" mnemonicParsing="false" text="Salvar" />
+                  <Button fx:id="subButton" layoutX="397.0" layoutY="135.0" mnemonicParsing="false" text="Remover unidade" />
+                  <ComboBox fx:id="prodSelection" layoutX="198.0" layoutY="54.0" prefHeight="31.0" prefWidth="181.0" promptText="Selecione produto" />
+                  <Button fx:id="saveButton" layoutX="259.0" layoutY="203.0" mnemonicParsing="false" text="Salvar" />
                </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Server">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea layoutY="-1.0" prefHeight="298.0" prefWidth="391.0" />
+                  <Button layoutX="407.0" layoutY="133.0" mnemonicParsing="false" onAction="#openServer" text="Abrir Servidor" />
+               </children>
+            </AnchorPane>
         </content>
       </Tab>
   </tabs>
