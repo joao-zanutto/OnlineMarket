@@ -29,8 +29,18 @@ public class ClientHandler{
 		makeFile();
 	}
 	
+	// Adiciona um cliente novo à lista
 	public void addClient(Client c){
 		this.clientList.add(c);
+	}
+	
+	// Verifica o login do usuario
+	public boolean verifyLogin(String login, String password){
+		for(Client c : clientList){
+			if(c.getLogin().equals(login) && c.getPassword().equals(password))
+				return true;
+		}
+		return false;
 	}
 	
 	// Escreve o arquivo lista de clientes

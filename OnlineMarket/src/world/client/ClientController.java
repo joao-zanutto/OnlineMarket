@@ -66,6 +66,9 @@ public class ClientController extends Application{
     
     @FXML
     private Text cerror;
+    
+    @FXML
+    private Text loginError;
 
     @FXML
     void initialize() {
@@ -80,6 +83,7 @@ public class ClientController extends Application{
     	try {
 			Socket sc = new Socket(ip.getText(), 1234);
 			sock = sc;
+			ConnectionHandler.getConnectionHandler().setSocket(sc);
 			connection = true;
 			cerror.setText("");
 			cerror.setFill(Color.TRANSPARENT);
@@ -90,6 +94,28 @@ public class ClientController extends Application{
 			cerror.setText("Erro na conexão com o servidor");
 			cerror.setFill(Color.RED);
 		}
+    }
+    
+    // Método que faz o login do usuário e abre a loja caso esteja tudo certo
+    @FXML
+    void login() throws Exception{
+    	if(login.getText().equals("") || password.getText().equals("")){
+    		loginError.setText("Nenhum campo pode estar vazio");
+    		loginError.setFill(Color.RED);
+    	} else if(!connection){
+    		loginError.setText("Você deve se conectar ao servidor");
+    		loginError.setFill(Color.RED);
+    	} else {
+    		loginError.setText("");
+    		loginError.setFill(Color.TRANSPARENT);
+    		boolean b = ConnectionHandler.getConnectionHandler().passLogin(login.getText(), password.getText());
+    		if(b){
+    			new ShopController().start(new Stage());
+    		} else {
+    			loginError.setText("Login ou senha errados");
+    			loginError.setFill(Color.RED);
+    		}
+    	}
     }
     
     // Método que faz o registro do usuário
@@ -107,7 +133,7 @@ public class ClientController extends Application{
     		error.setFill(Color.TRANSPARENT);
     		
     		Client c = new Client(newName.getText(), newAddres.getText(), newPhone.getText(), newEmail.getText(), newLogin.getText(), newPassword.getText());
-    		new ConnectionHandler(sock).passRegister(c);
+    		ConnectionHandler.getConnectionHandler().passRegister(c);
     	}
     }
     

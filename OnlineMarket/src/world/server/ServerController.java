@@ -158,7 +158,15 @@ public class ServerController extends Application{
     			String phone = sc.next();
     			String email = sc.next();
     			String login = sc.next();
+    			sc.skip(", ");
     			String password = sc.nextLine();
+    			
+    			System.out.println(name);
+    			System.out.println(addres);
+    			System.out.println(phone);
+    			System.out.println(email);
+    			System.out.println(login);
+    			System.out.println(password);
     			
     			Client c = new Client(name, addres, phone, email, login, password);
     			ch.addClient(c);

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.client.ShopController">
+   <children>
+      <ComboBox fx:id="prod" layoutX="106.0" layoutY="60.0" onAction="#updateItemInfo" onMouseExited="#updateItemInfo" prefHeight="31.0" prefWidth="198.0" promptText="Selecione o produto" />
+      <TextField fx:id="prodName" editable="false" layoutX="106.0" layoutY="145.0" />
+      <TextField fx:id="prodPrice" editable="false" layoutX="106.0" layoutY="185.0" />
+      <TextField fx:id="prodVal" editable="false" layoutX="106.0" layoutY="225.0" />
+      <TextField fx:id="prodForne" editable="false" layoutX="106.0" layoutY="266.0" />
+      <Label layoutX="56.0" layoutY="150.0" text="Nome" />
+      <Label layoutX="56.0" layoutY="190.0" text="Preço" />
+      <Label layoutX="39.0" layoutY="230.0" text="Validade" />
+      <Label layoutX="30.0" layoutY="271.0" text="Fornecedor" />
+      <Button fx:id="buy" layoutX="415.0" layoutY="201.0" mnemonicParsing="false" text="Comprar" />
+   </children>
+</Pane>

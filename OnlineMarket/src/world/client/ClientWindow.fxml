@@ -50,7 +50,8 @@
                   <TextField fx:id="password" layoutX="127.0" layoutY="150.0" />
                   <Label layoutX="66.0" layoutY="95.0" text="Login" />
                   <Label layoutX="67.0" layoutY="155.0" text="Senha" />
-                  <Button fx:id="confirm" layoutX="108.0" layoutY="251.0" mnemonicParsing="false" text="Confirmar" />
+                  <Button fx:id="confirm" layoutX="108.0" layoutY="251.0" mnemonicParsing="false" onAction="#login" text="Confirmar" />
+                  <Text fx:id="loginError" fill="TRANSPARENT" layoutX="90.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN ERROR SUPER MEGA GIGA TEXT" />
                </children></AnchorPane>
       </content>
     </Tab>
