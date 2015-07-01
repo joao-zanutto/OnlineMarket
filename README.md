@@ -1,6 +1,9 @@
 # OnlineMarket
 Este é um projeto para a disciplina de POO no ICMC-USP
 
+######`AVISO: FECHAR O SERVIDOR PELO TASK MANAGER, POIS ELE NÃO FECHA A PORTA ABERTA PARA CONEXÕES`
+
+
 #### Programado em
 
 ```
@@ -12,7 +15,7 @@ Eclipse Luna Service Release 2 (4.4.2)
 #### Uso de Design Patterns identificados
   - Classe `ProductHandler` (Singleton)
   - Classe `ClientHandler` (Singleton)
-  
+  - Classe `ConnectionHandler` (Singleton)
 
 #### Como usar o programa
   1. Baixar os .jar do cliente e do server
