@@ -32,6 +32,15 @@ public class ProductHandler {
 		p.setQuantity(p.getQuantity() + 1);
 	}
 	
+	public void removeByName(String name){
+		for(Product p: productList){
+			if(p.getName().equals(name)){
+				removeQuantity(p);
+				return;
+			}
+		}
+	}
+	
 	// Remove uma unidade do produto p
 	public void removeQuantity(Product p){
 		int num = p.getQuantity();

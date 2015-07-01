@@ -17,6 +17,6 @@
       <Label layoutX="56.0" layoutY="190.0" text="Preço" />
       <Label layoutX="39.0" layoutY="230.0" text="Validade" />
       <Label layoutX="30.0" layoutY="271.0" text="Fornecedor" />
-      <Button fx:id="buy" layoutX="415.0" layoutY="201.0" mnemonicParsing="false" text="Comprar" />
+      <Button fx:id="buy" layoutX="415.0" layoutY="201.0" mnemonicParsing="false" onAction="#buyButtonAction" text="Comprar" />
    </children>
 </Pane>

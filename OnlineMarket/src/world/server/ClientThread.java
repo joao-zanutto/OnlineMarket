@@ -50,6 +50,9 @@ public class ClientThread implements Runnable{
 						pw.println(p.getProvider());
 					}
 					pw.println("0");
+				} else if (cmd == 4){
+					String prodName = in.readLine();
+					ProductHandler.getProductHandler().removeByName(prodName);
 				}
 			}
 		} catch (IOException e) {

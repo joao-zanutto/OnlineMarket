@@ -63,6 +63,12 @@ public class ShopController extends Application{
     	}
     }
     
+    @FXML
+    void buyButtonAction(){
+    	if(prod.getSelectionModel().getSelectedItem() != null)
+    		ConnectionHandler.getConnectionHandler().buyItem(prod.getSelectionModel().getSelectedItem().getName());
+    }
+    
     // Loader do FXML
     FXMLLoader loader = new FXMLLoader(getClass().getResource("ShopWindow.fxml"));
 	public void start(Stage mainStage) throws Exception {

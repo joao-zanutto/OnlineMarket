@@ -66,9 +66,15 @@ public class ConnectionHandler {
 		return false;
 	}
 	
+	public void buyItem(String name){
+		pw.println("4");
+		pw.println(name);
+	}
+	
 	public void getList(){
 		pw.println("3");
 		
+		productList = new ArrayList<Product>();
 		try {
 			int hasNext = Integer.parseInt(br.readLine());
 			
